@@ -1,0 +1,9 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea/
+.mvn/
+genkin-server/target/
+genkin-web/target/
+
+*.iml
+
+
