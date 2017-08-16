@@ -1,0 +1,21 @@
+<div layout="column" layout-align="space-around center">
+    <md-input-container class="md-block">
+        <!-- Use floating placeholder instead of label -->
+        <md-icon md-svg-src="img/icons/ic_email_24px.svg" class="email"></md-icon>
+        <input type="email" placeholder="Email" ng-required="true" ng-model="user.email">
+    </md-input-container>
+
+    <md-input-container class="md-block">
+        <!-- Use floating placeholder instead of label -->
+        <md-icon md-svg-src="img/icons/ic_email_24px.svg" class="email"></md-icon>
+        <input type="text" placeholder="Username" ng-required="true" ng-model="user.username">
+    </md-input-container>
+
+    <md-input-container class="md-block">
+        <!-- Use floating placeholder instead of label -->
+        <md-icon md-svg-src="img/icons/ic_email_24px.svg" class="email"></md-icon>
+        <input type="password" placeholder="Password" ng-required="true" ng-model="user.password">
+    </md-input-container>
+
+    <md-button class="md-raised md-primary" ng-click="register()">Sign Up</md-button>
+</div>

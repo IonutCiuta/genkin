@@ -1,6 +1,6 @@
-'use strict';
+'user strict';
 
 genkin
-    .controller('LoginController', function () {
-        console.log("Login controller");
-    });
+    .controller('LoginController', ['$scope', function($scope) {
+        console.log('LoginController');
+    }]);
