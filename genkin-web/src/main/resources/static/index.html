@@ -1,15 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <head>
-	<title>Genkin</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css" type="text/css">
+
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+    <title>Genkin</title>
 </head>
-<body>
-	<div ng-app="genkin">
-		<h1>{{1 + 2}}</h1>
-	</div>
-	<script src="app/app.js"></script>
+<body ng-app="genkin">
+	<div ng-include="'template/navbar/navbar.html'"></div>
+
+    <div class="content" ng-view>Test</div>
+
+    <script src="js/genkin.js"></script>
+    <script src="js/config/router.js"></script>
+    <script src="js/config/theme.js"></script>
+    <script src="js/controller/LoginController.js"></script>
 </body>
 </html>
-
-
