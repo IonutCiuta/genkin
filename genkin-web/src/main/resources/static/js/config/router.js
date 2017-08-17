@@ -11,4 +11,8 @@ genkin
                 templateUrl: 'template/register.html',
                 controller: 'RegisterController'
             });
+            .when('/home', {
+                templateUrl: 'template/home.html',
+                controller: 'HomeController'
+            });
     });
