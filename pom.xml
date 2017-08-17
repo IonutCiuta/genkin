@@ -19,6 +19,7 @@
     <modules>
         <module>genkin-server</module>
         <module>genkin-web</module>
+        <module>genkin-common</module>
     </modules>
 
     <dependencies>
