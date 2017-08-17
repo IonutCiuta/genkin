@@ -7,7 +7,7 @@ genkin
                 templateUrl: 'template/login.html',
                 controller: 'LoginController'
             })
-            .when('/', {
+            .when('/register', {
                 templateUrl: 'template/register.html',
                 controller: 'RegisterController'
             });
