@@ -5,7 +5,10 @@ genkin
         console.log('Register controller');
 
         $scope.register = function() {
-            console.log('Register: ' + JSON.stringify($scope.user));
-            Notification.error('Register');
+            if($scope.user && $scope.user.email && $scope.user.username && $scope.user.password) {
+                console.log('Register: ' + JSON.stringify($scope.user));
+            } else {
+                Notification.error('All fields are requiered!');
+            }
         };
     }]);
