@@ -2,11 +2,12 @@
 
 genkin
     .service('UserService', function($http) {
-        var signUp = function(user, okCb, errCb) {
+        this.signUp = function(user, okCb, errCb) {
             console.log("signUp: " + JSON.stringify(user));
+            $http.post('/user/signup', user, {}).then(okCb, errCb);
         };
 
-        var signIn = function(user, okCb, errCb) {
+        this.signIn = function(user, okCb, errCb) {
             console.log("signIn: " + JSON.stringify(user));
         };
     });
