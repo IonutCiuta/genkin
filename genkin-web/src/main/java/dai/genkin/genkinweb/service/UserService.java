@@ -58,6 +58,16 @@ public class UserService {
         return auth;
     }
 
+    public void logout(User user) {
+        user = userRepository.findByAccessToken(user.getAccessToken());
+        user.setAccessToken(null);
+        userRepository.save(user);
+    }
+
+    public User load(User user) {
+        return userRepository.findByAccessToken(user.getAccessToken());
+    }
+
     private User setupDefaultUser(User user) {
         return new User.Builder(user)
                 .withPermissions(Permissions.DEFAULT)
