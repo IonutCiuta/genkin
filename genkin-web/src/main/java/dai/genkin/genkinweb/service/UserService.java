@@ -64,8 +64,8 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public User load(User user) {
-        return userRepository.findByAccessToken(user.getAccessToken());
+    public User load(String token) {
+        return userRepository.findByAccessToken(token);
     }
 
     private User setupDefaultUser(User user) {
