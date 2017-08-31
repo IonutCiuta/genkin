@@ -1,6 +1,6 @@
 package dai.genkin.genkinweb.controller;
 
-import dai.genkin.genkinweb.UserService;
+import dai.genkin.genkinweb.service.UserService;
 import model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,13 +18,13 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/signup")
-    public AuthenticationResult signup(@RequestBody User user) {
+    @PostMapping("/register")
+    public AuthenticationResult register(@RequestBody User user) {
         return userService.register(user);
     }
 
-    @PostMapping("/signin")
-    public AuthenticationResult signin(@RequestBody User user) {
+    @PostMapping("/login")
+    public AuthenticationResult login(@RequestBody User user) {
         return userService.login(user);
     }
 }

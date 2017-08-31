@@ -1,5 +1,7 @@
 package security;
 
+import model.User;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,9 +11,21 @@ import java.util.List;
 public class AuthenticationResult {
     private String accessToken;
     private List<String> permissions;
+    private String error;
 
-    public AuthenticationResult() {
-        this.permissions = new ArrayList<String>();
+    private AuthenticationResult() {}
+
+    public static AuthenticationResult forUser(User user) {
+        AuthenticationResult authenticationResult = new AuthenticationResult();
+        authenticationResult.setAccessToken(user.getAccessToken());
+        authenticationResult.setPermissions(user.getPermissions());
+        return authenticationResult;
+    }
+
+    public static AuthenticationResult withError(String error) {
+        AuthenticationResult authenticationResult = new AuthenticationResult();
+        authenticationResult.setError(error);
+        return authenticationResult;
     }
 
     public String getAccessToken() {
@@ -32,5 +46,19 @@ public class AuthenticationResult {
 
     private void addPermission(String permission) {
         this.permissions.add(permission);
+    }
+
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
+
+    public static class Error {
+        public static final String USED_EMAIL = "used_email";
+        public static final String INVALID_EMAIL = "invalid_email";
+        public static final String INVALID_PASS = "invalid_pass";
     }
 }
