@@ -5,11 +5,14 @@ genkin
         console.log('LoginController');
 
         $scope.login = function(user) {
-            if($scope.user && $scope.user.name && $scope.user.password) {
-                console.log(JSON.stringify($scope.user));
-                Loader.show();
-            } else {
-                Notification.error('Both fields are required!');
-            }
-        }
+            UserService.signIn($scope.user, function(response) {
+                Loader.hide();
+                console.log(JSON.stringify(response.data));
+                $location.path('/home');
+            }, function(error) {
+                Loader.hide();
+                console.log(JSON.stringify(error));
+                Notification.error("Unable to sign in!");
+            });
+        };
     }]);

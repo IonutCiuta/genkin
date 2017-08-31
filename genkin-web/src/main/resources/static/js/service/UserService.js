@@ -9,5 +9,6 @@ genkin
 
         this.signIn = function(user, okCb, errCb) {
             console.log("signIn: " + JSON.stringify(user));
+            $http.post('/user/signin', user, {}).then(okCb, errCb)
         };
     });
