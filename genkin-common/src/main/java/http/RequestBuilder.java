@@ -103,27 +103,27 @@ public class RequestBuilder {
         return this.makeCall(restTemplate, null, null);
     }
 
-    public <ResponseType> ResponseEntity<ResponseType> makeCall(RestOperations restTemplate, Class<ResponseType> type) {
+    public <ResponseType> ResponseEntity<ResponseType> makeCall(RestOperations restTemplate, 
+                                                                Class<ResponseType> type) {
         return this.makeCall(restTemplate, type, null);
     }
 
-    public <ResponseType> ResponseEntity<ResponseType> makeCall(RestOperations restTemplate, ParameterizedTypeReference<ResponseType> parametrizedTypeReference) {
-        return this.makeCall(restTemplate, null, parametrizedTypeReference);
+    public <ResponseType> ResponseEntity<ResponseType> makeCall(RestOperations restTemplate, 
+                                                                ParameterizedTypeReference<ResponseType> typeReference) {
+        return this.makeCall(restTemplate, null, typeReference);
     }
 
     private <ResponseType> ResponseEntity<ResponseType> makeCall(RestOperations template,
                                                                  Class<ResponseType> type,
                                                                  ParameterizedTypeReference<ResponseType> typeReference) {
-        log.info("Make a {} Call to: {}", this.method.name(), this.url);
         UriComponentsBuilder urlBuilder = UriComponentsBuilder.fromHttpUrl(this.url);
-
         if (!this.params.isEmpty()) {
             params.forEach(urlBuilder::queryParam);
         }
 
         try {
             URI uri = encodeUrl ? urlBuilder.build().toUri() : new URI(urlBuilder.build().toUriString());
-            RequestEntity request  = new RequestEntity<>(this.body, this.headers, this.method, uri);
+            RequestEntity request = new RequestEntity<>(this.body, this.headers, this.method, uri);
 
             if(typeReference == null){
                 return template.exchange(request, type);
@@ -133,10 +133,10 @@ public class RequestBuilder {
 
         } catch (RestClientResponseException e) {
             log.error("ErrorResponse from {}: Status:{}, Body:{}", this.url, e.getRawStatusCode(), e.getResponseBodyAsString());
-            return new Error("Internal error");
+            return null;
         } catch (URISyntaxException e) {
             log.error(e.getMessage());
-
+            return null;
         }
     }
 }
