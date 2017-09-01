@@ -1,21 +1,14 @@
 package dai.genkin.genkinweb.service;
 
 import dai.genkin.genkinweb.repository.UserRepository;
-import http.RequestBuilder;
+import java.util.List;
+import java.util.UUID;
 import model.User;
 import model.UserType;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
-import org.springframework.web.util.UriComponentsBuilder;
 import security.AuthenticationResult;
 import security.Permissions;
-
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.UUID;
 
 /**
  * ionutciuta24@gmail.com on 31.08.2017.

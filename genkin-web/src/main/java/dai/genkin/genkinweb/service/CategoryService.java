@@ -18,10 +18,14 @@ public class CategoryService {
     private CategoryRepository categoryRepository;
 
     public List<Category> findCommonCategories() {
-        return categoryRepository.findByOwnerId("");
+        return categoryRepository.findByOwnerId(null);
     }
 
     public List<Category> findUserCategories(User user) {
         return categoryRepository.findByOwnerId(user.getId());
+    }
+
+    public Category addCategory(Category category) {
+        return categoryRepository.save(category);
     }
 }
