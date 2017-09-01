@@ -1,7 +1,8 @@
 'use strict';
 
 genkin
-    .controller('ToolbarController', ['$rootScope', '$scope', '$location', function($rootScope, $scope, $location) {
+    .controller('ToolbarController', ['$rootScope', '$scope', '$location', '$localStorage',
+        function($rootScope, $scope, $location, $localStorage) {
         console.log('ToolbarController');
 
         $scope.register = function() {
@@ -15,4 +16,12 @@ genkin
             $location.path('/');
             $rootScope.onLogin = true;
         };
+
+        $scope.logout = function() {
+            console.log('Logout');
+            $location.path('/');
+            $rootScope.onLogin = true;
+            $rootScope.logoutOn = false;
+            $localStorage.$reset();
+        }
     }]);

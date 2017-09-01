@@ -1,8 +1,8 @@
 'use strict';
 
 genkin
-    .controller('RegisterController', ['$scope', '$mdToast', '$location', 'UserService', 'Notification', 'Loader',
-        function($scope, $mdToast, $location, UserService, Notification, Loader) {
+    .controller('RegisterController', ['$scope', '$rootScope', '$location', '$localStorage', 'UserService', 'Notification', 'Loader',
+        function($scope, $rootScope, $location, $localStorage, UserService, Notification, Loader) {
         console.log('Register controller');
 
         $scope.register = function() {
@@ -12,7 +12,15 @@ genkin
                 UserService.signUp($scope.user, function(response) {
                     Loader.hide();
                     console.log(JSON.stringify(response.data));
-                    $location.path('/home');
+
+                    if(response.data.error) {
+                        Notification.error(response.data.error);
+                    } else {
+                        $location.path('/home');
+                        $localStorage.auth = response.data;
+                        $rootScope.logoutOn = true;
+                    }
+
                 }, function(error) {
                     Loader.hide();
                     console.log(JSON.stringify(error));

@@ -1,0 +1,21 @@
+<div layout="column" layout-align="space-around center">
+    <md-input-container class="md-block">
+        <input type="text" placeholder="Title" ng-required="true" ng-model="expense.title">
+    </md-input-container>
+
+    <md-input-container class="md-block">
+        <input type="number" placeholder="Amount" ng-required="true" ng-model="expense.amount">
+    </md-input-container>
+
+    <md-input-container class="md-block" ng-required="true">
+        <label>Category</label>
+
+        <md-select ng-model="expense.category">
+            <md-option ng-repeat="category in categories" ng-value="category">
+                {{category.name}}
+            </md-option>
+        </md-select>
+    </md-input-container>
+
+    <md-button class="md-raised md-primary" ng-click="add()">Add</md-button>
+</div>
