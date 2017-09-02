@@ -5,8 +5,11 @@ genkin
         function($scope, $rootScope, $location, $localStorage, UserService, Notification, Loader) {
         console.log('LoginController');
 
+        $rootScope.showRegister();
+
         if($localStorage.auth) {
             $location.path('/home');
+            $rootScope.showLogout();
         }
 
         $scope.login = function(user) {
@@ -19,7 +22,6 @@ genkin
                 } else {
                     $location.path('/home');
                     $localStorage.auth = response.data;
-                    $rootScope.logoutOn = true;
                 }
 
             }, function(error) {

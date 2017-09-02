@@ -2,9 +2,11 @@
   <div class="md-toolbar-tools">
     <h2 md-truncate>Genkin</h2>
 
-    <md-button class="md-raised" ng-click="register()" ng-show="onLogin">Sign Up</md-button>
-    <md-button class="md-raised" ng-click="login()" ng-show="!onLogin">Sign In</md-button>
-    <md-button class="md-raised" ng-click="logout()" ng-show="logoutOn">Sign Out</md-button>
+    <div layout="row" layout-align="end center">
+    <md-button class="md-raised" ng-click="register()" ng-show="{{registerIsOn}}">Sign Up</md-button>
+    <md-button class="md-raised" ng-click="login()" ng-show="{{loginIsOn}}">Sign In</md-button>
+    <md-button class="md-raised" ng-click="logout()" ng-show="{{logoutIsOn}}">Sign Out</md-button>
+    </div>
   </div>
 </md-toolbar>
-<md-progress-linear md-mode="indeterminate" class="md-accent" ng-show="progress"></md-progress-linear>
+<md-progress-linear md-mode="indeterminate" style="background: #00695C" ng-show="progress"></md-progress-linear>

@@ -1,38 +1,43 @@
-<div layout="column" layout-align="space-around">
-    <div layout="column" layout-align="start start">
-        <div ng-repeat="expense in expenses" ng-click="null">
-            <!--<img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />-->
-            <!--<div class="md-list-item-text" layout="column">
-                <h3>{{ expense.title }}</h3>
-                <h4><b>{{ expense.amount }} EUR</b></h4>
-                <p>{{ expense.category.name }}</p>
-            </div>-->
-            <md-card md-theme="dark-blue" md-theme-watch>
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">{{expense.title}}</span>
-                    <span class="md-subhead"><b>{{expense.amount}} EUR</b></span>
-                </md-card-title-text>
-                <md-card-title-media>
-                    <div class="md-media-sm card-media"></div>
-                </md-card-title-media>
-            </md-card-title>
-            <md-card-actions layout="row" layout-align="end center">
-                <!--<md-button>Action 1</md-button>
-                <md-button>Action 2</md-button>-->
-            </md-card-actions>
-            </md-card>
+<div layout="row">
+    <div flex="20">
+        <md-list-item ng-repeat="expense in expenses" ng-click="null">
+            <md-card
+                    layout-padding layout-margin
+                    style="min-width: 200px; background-color: {{expense.category.color}}">
 
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline" style="color: #FFFFFF">{{expense.title}}</span>
+                        <span class="md-subhead" style="color: #FFFFFF"><b>{{expense.amount}} EUR</b>, {{formatDate(expense)}}</span>
+                        <span class="md-body-2" style="color: #FFFFFF">{{expense.category.name}}</span>
+                    </md-card-title-text>
+                </md-card-title>
+
+            </md-card>
+        </md-list-item>
+    </div>
+
+    <div layout="column" flex=60 layout="center stretch">
+        <div layout="row" flex layout="center">
+            <canvas style="max-height: 200px; max-width: 200px"
+                    class="chart chart-doughnut"
+                    chart-data="data" chart-labels="labels" chart-colors="colors">
+            </canvas>
+        </div>
+        <div layout="row" flex layout="center">
+            <canvas style="max-height: 500px; max-width: 500px"
+                    class="chart chart-bar"
+                    chart-data="barData" chart-labels="barLabels">
+            </canvas>
         </div>
     </div>
 
-
-    <div layout="column" layout-align="end end">
+    <div layout="column" flex="20" layout-align="end end" layout-margin>
         <md-button
-                class="md-fab md-primary"
+                class="md-fab" style="background: #00695C"
                 aria-label="Add Expense"
                 ng-click="addExpense()">
-            <md-icon md-svg-src="img/icons/android.svg"></md-icon>
+            <md-icon md-svg-src="img/ic_add_white_24px.svg"></md-icon>
         </md-button>
     </div>
 </div>

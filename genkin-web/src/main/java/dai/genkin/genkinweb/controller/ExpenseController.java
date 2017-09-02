@@ -2,7 +2,6 @@ package dai.genkin.genkinweb.controller;
 
 import dai.genkin.genkinweb.service.ExpenseService;
 import dai.genkin.genkinweb.service.UserService;
-import java.util.Date;
 import java.util.List;
 import model.Expense;
 import model.User;
@@ -45,7 +44,6 @@ public class ExpenseController {
 
         if(user != null) {
             expense.setUserId(user.getId());
-            expense.setDate(new Date());
             return expenseService.addExpense(expense);
         } else {
             throw new UnsupportedOperationException("Unknown user: " + accessToken);

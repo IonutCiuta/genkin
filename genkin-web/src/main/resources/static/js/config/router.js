@@ -1,6 +1,6 @@
 const THEME 	= 'genkin-theme';
-const PRIMARY 	= 'orange';
-const ACCENT 	= 'deep-orange';
+const PRIMARY 	= 'blue-grey';
+const ACCENT 	= 'teal';
 
 genkin
     .config(function ($routeProvider, $mdThemingProvider) {

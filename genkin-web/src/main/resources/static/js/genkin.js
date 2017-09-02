@@ -1,3 +1,3 @@
 'use strict';
 
-var genkin = angular.module('genkin', ['ngRoute', 'ngMaterial', 'ngStorage']);
+var genkin = angular.module('genkin', ['ngRoute', 'ngMaterial', 'ngStorage', 'chart.js']);
