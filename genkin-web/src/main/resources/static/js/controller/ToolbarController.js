@@ -6,18 +6,21 @@ genkin
         console.log('ToolbarController');
 
         $rootScope.showLogin = function () {
+            console.log("showLogin");
             $rootScope.loginIsOn = true;
             $rootScope.registerIsOn = false;
             $rootScope.logoutIsOn = false;
         };
 
         $rootScope.showRegister = function () {
+            console.log("showRegister");
             $rootScope.loginIsOn = false;
             $rootScope.registerIsOn = true;
             $rootScope.logoutIsOn = false;
         };
 
         $rootScope.showLogout = function () {
+            console.log("showLogout");
             $rootScope.loginIsOn = false;
             $rootScope.registerIsOn = false;
             $rootScope.logoutIsOn = true;

@@ -1,0 +1,14 @@
+[
+  {
+    "name" : "Food",
+    "color" : "#0D47A1"
+  },
+  {
+    "name" : "Entertainment",
+    "color" : "#B71C1C"
+  },
+  {
+    "name" : "Housing",
+    "color" : "#00695C"
+  }
+]
